@@ -37,15 +37,3 @@ JOIN hr.departments D
 JOIN hr.locations L
 	ON (D.location_id = L.location_id)
 WHERE city = 'Seattle';
-
-6-
-SELECT E.last_name 'Employee', E.employee_id 'Emp#', M.last_name Manager, M.employee_id 'Mgr#'
-FROM hr.employees E
-JOIN hr.employees M 
-	ON (E.manager_id = M.employee_id);
-
-7-
-SELECT E.last_name 'Employee', E.employee_id 'Emp#', M.last_name Manager, M.employee_id 'Mgr#'
-FROM hr.employees E
-LEFT JOIN hr.employees M 
-	ON (E.manager_id = M.employee_id);
