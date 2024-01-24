@@ -1,0 +1,51 @@
+série 4:
+
+1-
+SELECT last_name, D.department_id, department_name
+FROM hr.employees E
+JOIN hr.departments D
+	ON (E.department_id = D.department_id);
+
+2-
+SELECT DISTINCT job_id
+FROM hr.employees
+WHERE department_id = 30;
+
+3-
+SELECT E.last_name, D.department_name, L.city
+FROM hr.employees E
+JOIN hr.departments D
+	ON (E.department_id = D.department_id)
+JOIN hr.locations L
+	ON (D.location_id = L.location_id)
+WHERE E.commission_pct IS NOT NULL;
+
+4-
+SELECT last_name, department_name
+FROM hr.employees E
+JOIN hr.departments D
+	ON (E.department_id = D.department_id)
+WHERE last_name LIKE '%a%';
+
+5-
+SELECT last_name, job_title, D.department_id, department_name
+FROM hr.employees E
+JOIN hr.jobs J
+	ON (E.job_id = J.job_id)
+JOIN hr.departments D
+	ON (E.department_id = D.department_id)
+JOIN hr.locations L
+	ON (D.location_id = L.location_id)
+WHERE city = 'Seattle';
+
+6-
+SELECT E.last_name 'Employee', E.employee_id 'Emp#', M.last_name Manager, M.employee_id 'Mgr#'
+FROM hr.employees E
+JOIN hr.employees M 
+	ON (E.manager_id = M.employee_id);
+
+7-
+SELECT E.last_name 'Employee', E.employee_id 'Emp#', M.last_name Manager, M.employee_id 'Mgr#'
+FROM hr.employees E
+LEFT JOIN hr.employees M 
+	ON (E.manager_id = M.employee_id);
